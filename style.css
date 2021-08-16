@@ -1,6 +1,30 @@
 body {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-top: 300px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-image: url("images/green-tile.jpg");
+  background-repeat: repeat;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  padding-top: 130px;
+}
+
+h1 {
+  color: goldenrod;
+}
+
+#message-el {
+  font-style: italic;
+}
+.btn {
+  background: #daa521;
+  color: #246f08;
+  font-weight: 700;
+  font-size: 19px;
+  width: 200px;
+  height: 50px;
+  display: block;
+  margin: 10px auto;
+  border-radius: 2px;
 }
