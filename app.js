@@ -1,11 +1,8 @@
-let card1 = randomNumber();
-let card2 = randomNumber();
-
-let cardsArr = [card1, card2];
-let summ = card1 + card2;
-let isActiveButton = false;
+let cardsArr = [];
+let summ = 0;
+// let isActiveButton = false;
 let hasBlackJack = false;
-let isAlive = true;
+let isAlive = false;
 let message = "";
 
 let startGameButton = document.querySelector("#startGameBtn");
@@ -17,17 +14,26 @@ let allCards = document.querySelector("#cards-el");
 let summOfCards = document.querySelector("#sum-el");
 
 function startGame() {
+    cardsArr = [];
+    isAlive = true;
+    allCards.innerText = "Cards: ";
+    let card1 = randomNumber();
+    let card2 = randomNumber();
+    cardsArr.push(card1);
+    cardsArr.push(card2);
+    summ = card1 + card2;
     renderGame()
-    startGameButton.setAttribute("disabled", "disabled");
-    startGameButton.style.backgroundColor = "gray"
 }
 
 function randomNumber() {
-  let number = Math.floor(Math.random() * 11) + 1;
-  if (number < 2) {
-    number++;
+  let number = Math.floor( Math.random()*13 ) + 1
+  if (number > 10) {
+      return 10
+  } else if (number === 1) {
+      return 11
+  } else {
+      return number
   }
-  return number;
 }
 
 function renderGame() {
@@ -50,7 +56,7 @@ function renderGame() {
   summOfCards.textContent = "Sum: " + summ;
 }
 function newCard() {
-  if (isActiveButton) {
+  if (isAlive === true && hasBlackJack === false) {
     let otherCard = randomNumber();
     cardsArr.push(otherCard);
     summ += otherCard;
